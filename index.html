@@ -1,18 +1,129 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>نمونه‌کارهای من</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Portfolio</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    color: #222;
+    text-align: center;
+}
+
+header {
+    background: white;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header p {
+    color: #777;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #ddd;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card h2 {
+    font-size: 21px;
+}
+
+.card p {
+    color: #777;
+}
+
+button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    padding: 25px;
+    color: #777;
+}
+</style>
 </head>
+
 <body>
 
-<h1>نمونه‌کارهای من</h1>
+<header>
+    <h1>My Portfolio</h1>
+    <p>Welcome to my programming projects</p>
+</header>
 
-<h2>ساعت دیجیتال</h2>
-<a href="clock.html">مشاهده پروژه</a>
+<div class="container">
 
-<h2>فرم ورود</h2>
-<a href="login%20form.html">مشاهده پروژه</a>
+    <div class="card">
+        <h2>Digital Clock</h2>
+        <p>A digital clock project.</p>
+        <a href="digital-clock.html">
+            <button>View Project</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>Login Form</h2>
+        <p>A simple login form project.</p>
+        <a href="login-form.html">
+            <button>View Project</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>Face Detection</h2>
+        <img src="face-detect.jpg" alt="Face Detection Project">
+        <p>Face detection project.</p>
+        <a href="face-detect.jpg">
+            <button>View Project</button>
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 My Portfolio
+</footer>
 
 </body>
 </html>
