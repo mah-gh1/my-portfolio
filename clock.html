@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <br><br>
+        <br>
+        <br>
+        <br> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<meta name="viwport;" content="width-device-width,inital-scale=1.0;">
+<meta charset="utf-8">
+<style>
+    button{
+        display: none ;
+    }
+body{background-color: rgb(147, 5, 76);
+}
+
+</style>
+    </head>
+    <body style="text-align: center;" anload="start();">
+<div id="clock" style="font-size: 100px;color:black"></div>
+<!--<div id="demo"></div>-->
+<br>
+<br>
+<br>
+        <script>
+            var a=0;
+            a=a+1;
+            
+             var h=0;
+             var m=0;
+             var s=0;
+             var timer1;
+             
+    
+function updateClock(){
+    let now= new Date();
+    let timeString=now.toLocaleTimeString("en-IR");
+    document.getElementById("clock").innerText=timeString;
+}
+setInterval(updateClock,1000);
+updateClock();
+
+function lily(){let x="yoyo"; s=s+1;
+if(s>59){m=m+1; s=0;}
+if(m>59){h=h+1; m=0;}
+if(h>23){h=0;}
+    document.getElementById("demo").innerHTML=h+":"+m+":"+s;}
+setInterval(lily,1000);
+
+function start(){if(flagstart==false){flagstart=true;
+timer1=setInterval(lily,1);}
+    flagstart=true;
+  timer1= setInterval(lily,1000);
+
+document.getElementById("btn-start").disabled=true;
+document.getElementById("btn-stop").disabled=false;
+document.getElementById("btn-reset").disabled=false;}
+
+function stop(){clearInterval(timer1);
+document.getElementById("btn-start").disabled=false;
+    document.getElementById("btn-stop").disabled=true;}
+flagstart=false;
+
+
+function reset(){s=0; stop();
+    s=0;
+    m=0;
+    h=0;
+    document.getElementById("demo").innerHTML="0:0:0";
+    document.getElementById("btn-start").disabled=false;
+    document.getElementById("btn-stop").disabled=true;
+    document.getElementById("btn-reset").disabled=true;
+    flagstart=false;
+}
+        </script>
+        <button id="btn-start" class="yoyo" onclick="start()">start</button>
+        <button id="btn-stop" class="btn btn-success" onclick="stop()">stop</button>
+        <button id="btn-reset" class="btn btn-danger" onclick="reset()" disabled>resrt</button>
+
+    </body>
+</html>

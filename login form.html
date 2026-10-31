@@ -1,0 +1,189 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body{background-color: rgb(160, 216, 144);}
+    </style>
+</head>
+<body>
+    <h1 class="text-center text-success font-weight-bold" style="font-size: 40px;">Form Validation in JavaScript</h1>
+    <h4 class="text-center text-primary font-weight-bold" style="font-size: 20px;">Sign Up</h4>
+    <div class="container"><br>
+        <div class="col-12">
+            <form action="#" onsubmit="return validation()" class="bg-success p-4">
+                <div class="form-group mb-2">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" autocomplete="off">
+                    <span id="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="Email">Email</label>
+                    <input type="email" name="email" class="form-control" id="Email" autocomplete="off">
+                    <span id="Emailid" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="user">Username</label>
+                    <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+                    <span id="Username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="pass">Password</label>
+                    <input type="password" name="pass" class="form-control" id="pass" autocomplete="off">
+                    <span id="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="conpass">Confirm Password</label>
+                    <input type="password" name="conpass" class="form-control" id="conpass" autocomplete="off">
+                    <span id="Confrmpass" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="tel" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+                    <span id="Mobileno" class="text-danger"></span>
+                </div>
+
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                <input type="reset" name="reset" value="Reset" class="btn btn-secondary">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </form>
+            <br><br>
+        </div>
+    </div>
+
+    <!--<div class="col-12">
+        <form action="#" onsubmit="return validation()" class="bg-light p-4">
+            <div class="form-group mb-2">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name" autocomplete="off">
+                <span id="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="Email">Email</label>
+                <input type="email" name="email" class="form-control" id="Email" autocomplete="off">
+                <span id="Emailid" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="user">Username</label>
+                <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+                <span id="Username" class="text-danger">** لطفا نام کاربری را وارد کنید</span>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="pass">Password</label>
+                <input type="password" name="pass" class="form-control" id="pass" autocomplete="off">
+                <span id="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="conpass">Confirm Password</label>
+                <input type="password" name="conpass" class="form-control" id="conpass" autocomplete="off">
+                <span id="Confrmpass" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-5">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="tel" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+                <span id="Mobileno" class="text-danger"></span>
+            </div>
+
+            <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+            <input type="reset" name="reset" value="Reset" class="btn btn-secondary">
+                Already have an account?
+            <a href="login.html">Login</a>
+        </form>
+        <br><br>
+    </div>-->
+
+    <script type="text/javascript">
+        function validation() {
+            var name = document.getElementById("name").value; 
+            var user = document.getElementById("user").value;
+            var pass = document.getElementById("pass").value;
+            var Confrmpass = document.getElementById("conpass").value;
+            var mobileNumber = document.getElementById("mobileNumber").value;
+            var Emailid = document.getElementById("Email").value;
+
+            // پاک‌سازی پیام‌های قبلی
+            document.getElementById("Name").innerHTML = "";
+            document.getElementById("Emailid").innerHTML = "";
+            document.getElementById("Username").innerHTML = "";
+            document.getElementById("Password").innerHTML = "";
+            document.getElementById("Confrmpass").innerHTML = "";
+            document.getElementById("Mobileno").innerHTML = "";
+
+            if (name === "") {
+                document.getElementById("Name").innerHTML = "** لطفا نام را وارد کنید";
+                return false;
+            }
+
+            if (Emailid === "") {
+                document.getElementById("Emailid").innerHTML = "** لطفا ایمیل را وارد کنید";
+                return false;
+            }
+
+            if (Emailid.indexOf("@") <= 0) {
+                document.getElementById("Emailid").innerHTML = "ایمیل معتبر نیست!";
+                return false;
+            }
+
+            if (Emailid.charAt(Emailid.length - 4) !== "." &&
+                Emailid.charAt(Emailid.length - 3) !== ".") {
+                document.getElementById("Emailid").innerHTML = "ایمیل معتبر نیست!";
+                return false;
+            }
+
+            if (user === "") {
+                document.getElementById("Username").innerHTML = "** لطفا نام کاربری را وارد کنید";
+                return false;
+            }
+
+            if (!isNaN(user)) {
+                document.getElementById("Username").innerHTML = "** نام کاربری نمی‌تواند عدد باشد";
+                return false;
+            }
+
+            if (pass === "") {
+                document.getElementById("Password").innerHTML = "** لطفا رمز عبور را وارد کنید";
+                return false;
+            }
+
+            if (pass.length < 5 || pass.length > 20) {
+                document.getElementById("Password").innerHTML = "** رمز عبور باید بین 5 تا 20 کاراکتر باشد";
+                return false;
+            }
+
+            if (pass !== Confrmpass) {
+                document.getElementById("Confrmpass").innerHTML = "** رمزها با هم مطابقت ندارند";
+                return false;
+            }
+
+            if (mobileNumber === "") {
+                document.getElementById("Mobileno").innerHTML = "** لطفا شماره موبایل را وارد کنید";
+                return false;
+            }
+
+            if (isNaN(mobileNumber)) {
+                document.getElementById("Mobileno").innerHTML = "** فقط اعداد مجاز هستند";
+                return false;
+            }
+
+            if (mobileNumber.length !== 11) {
+                document.getElementById("Mobileno").innerHTML = "** شماره موبایل باید 11 رقم باشد";
+                return false;
+            }
+
+            // در نهایت اگر همه چیز درست بود:
+            alert("فرم با موفقیت ارسال شد!");
+            return true;
+        }
+    </script>
+</body>
+</html>
